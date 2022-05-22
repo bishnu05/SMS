@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width:85%;
+            height:auto;
+            margin:auto;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap:20px;
+            border:none;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+        div{
+            text-align: center;
+            border: 1px solid black;
+            width:190px;
+            border-radius: 8px;
+        }
+        img{
+            height:auto;
+            width:100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+
+   var products1=JSON.parse(localStorage.getItem("products"));
+   products1.forEach(function(el,i){
+        box=document.createElement("div");
+       var img=document.createElement("img");
+       img.src=el.image;
+       var name=document.createElement("p")
+       name.innerText=el.name;
+       var gender=document.createElement("p")
+       gender.innerText=el.gender;
+       var category=document.createElement("p")
+       category.innerText=el.category;
+       var price=document.createElement("p")
+       price.innerText=el.price;
+       var btn = document.createElement("button")
+       btn.innerText="remove";
+
+       btn.addEventListener("click",function(){
+           remove(el,i)
+       });
+
+       var btn1=document.createElement("button")
+       btn1.innerText="sold";
+       btn1.value=el.sold;
+
+       if(btn1.value=="true"){
+           btn1.style.backgroundColor="red";
+       }
+       else{
+           btn1.style.backgroundColor="green";
+       }
+
+       btn1.addEventListener("click",function(){
+           soldFunction(el,i)
+       })
+
+       box.append(img,name,gender,category,price,btn,btn1)
+       document.querySelector("#container").append(box);
+   })
+    
+   function remove(el,i){
+       products1.splice(i,1)
+       localStorage.setItem("products",JSON.stringify(products1));
+       window.location.reload();
+   }
+
+   function soldFunction(el,i){
+      el.btn1=!el.btn1;
+      console.log(el.btn1)
+      localStorage.setItem("Products",JSON.stringify(products1))
+      window.location.reload()
+   }
+
+</script>

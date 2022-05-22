@@ -1,0 +1,28 @@
+#navbar{
+    height:70px;
+  background-color: teal;
+  display: flex;
+  justify-content: space-around;
+}
+#navbar div{
+  margin-left: 30px;
+}
+#container{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap:5px;
+  width:99%;
+  height:auto;
+  margin: 10px 20px;
+}
+#container>div{
+  /* border: 1px solid black; */
+  width:90%;
+  height:380px;
+  text-align: center;
+}
+#container>div>img{
+  width:99%;
+  height:50%;
+  /* border: 1px solid teal; */
+}

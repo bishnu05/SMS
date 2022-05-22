@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Amar Akbar Anthony</h1>
+    <p>Check in Console</p>
+</body>
+</html>
+<script>
+    let amar={
+        Name:"Amar",
+        Profession:"Singer",
+        Place:"Goa"
+    }
+    let akbar={
+        Name:"Akbar",
+        Profession:"chef",
+        Place:"Mumbai"
+    }
+    let anthony={
+        Name:"Anthony",
+        Profession:"magician",
+        Place:"Kashmir"
+    }
+    function skill(){
+        console.log(`my name is ${this.Name} & my profession is ${this.Profession} and i live in ${this.Place}`)
+    }
+    skill.call(amar);
+    skill.call(akbar);
+    skill.call(anthony);
+</script>
